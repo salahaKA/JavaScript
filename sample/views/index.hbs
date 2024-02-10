@@ -1,0 +1,38 @@
+{{!-- <h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+
+
+<h2>{{name}}</h2> <br>
+
+{{#each values}}  {{! looping statement}}
+
+<h2>{{@index}}. {{this}}</h2>
+
+{{/each}} <br>
+
+<h1>{{person.name}}</h1>
+<h1>{{person.comments.Comment}}</h1>
+<h1>{{person.comments.date}}</h1> 
+
+----------------------------------------}}
+{{!-- IF ELSE in hbs --}}
+
+{{!-- {{#if person.admin}}
+
+<h1>This is true block</h1>
+
+{{else}}
+
+<h1>This is false block</h1>
+
+{{/if}} --}}
+
+{{!-- Nested if --}}
+{{#with Fresher}}
+    <h1>{{name}}</h1>
+    <h1>{{comments.Comment}}</h1>
+{{#with comments}}
+    <h1>{{Comment}}</h1>
+    <h1>{{date}}</h1>
+{{/with}}
+{{/with}}
