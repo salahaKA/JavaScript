@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Prime and Fibonacci</title>
+    <script>
+        function checkPrime() {
+            let st = ui.val.value;
+            var num = parseInt(st)
+            let flag = true;
+
+            if (num === 1) flag = false;
+            else if (num > 1) {
+                for (let i = 2; i <= Math.sqrt(num); i++) {
+                    if (num % i === 0) {
+                        flag = false;
+                        break;
+                    }
+                }
+            } else flag = false;
+
+            if (flag) alert(num + " is a prime number.");
+            else alert(num + " is not a prime number.");
+        }
+
+        function checkFib() {
+            let st = ui.val.value;
+            var num = parseInt(st);
+
+            let a = 0;
+            let b = 1;
+            while (b < num) {
+                let temp = b;
+                b = a + b;
+                a = temp;
+            }
+
+            if (b === num) alert(num + " is a Fibonacci number.");
+            else if (num == 0) alert(num + " is a Fibonacci number.");
+            else alert(num + " is not a Fibonacci number.");
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <form name="ui">
+        <pre>
+            Enter a Number: <input type="text" name="val">
+            <input type="button" value="check primeNo" onclick="checkPrime()">
+            <input type="button" value="check Fibonacci" onclick="checkFib()">
+        </pre>
+    </form>
+</body>
+
+</html>

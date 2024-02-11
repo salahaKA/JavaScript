@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculation</title>
+    <script>
+        function findAge() 
+        {
+            var dobdate = new Date(ui.d1.value);
+            var curdate = new Date();
+
+            var curyear = curdate.getFullYear();
+            var curmonth = curdate.getMonth();
+            var curday = curdate.getDate();
+
+            var dobyear = dobdate.getFullYear();
+            var dobmonth = dobdate.getMonth();
+            var dobday = dobdate.getDate();
+
+            var day = curday - dobday;
+            var month = curmonth - dobmonth;
+            var year = curyear - dobyear;
+
+            if (day < 0) {
+                if ((dobmonth == 1) && (dobyear % 4 == 0)) {
+                    day += 29;
+                } else if (dobmonth == 1) {
+                    day += 28;
+                } else if ((dobmonth == 0) || (dobmonth == 2) || (dobmonth == 11)) {
+                    day += 31;
+                } else {
+                    day += 30;
+                    month = month - 1;
+                }
+            }
+            if (month < 0) {
+                month += 12;
+                year = year - 1;
+            }
+            ui.result.value = year + " years " + month + " months " + day + " days";
+        }
+
+        function calAgeDays() 
+        {
+            var dobdate = new Date(ui.d1.value);
+            var curdate = new Date();
+            var noofdays = (curdate.getTime() - dobdate.getTime()) / (24 * 60 * 60 * 1000);
+            ui.result.value = parseInt(noofdays);
+        }
+    </script>
+</head>
+
+<body>
+    <form name="ui">
+        <pre>
+            Enter DOB (mm/dd/yyyy): <input type="text" name="d1">
+            <input type="button" value="FIND AGE" onclick="findAge()">
+            Result: <input type="text" name="result">
+            <input type="button" value="Age in Days" onclick="calAgeDays()">
+        </pre>
+    </form>
+</body>
+
+</html>

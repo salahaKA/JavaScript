@@ -1,100 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Calculator</title>
     <script>
-        var op,op1;
-        function add(){
-            op="+"
-            op1= cal.acc.value;
-            cal.acc.value="0";
+        var op, op1;
+        function add() {
+            op = "+"
+            op1 = cal.acc.value;
+            cal.acc.value = "0";
         }
-        function sub(){
-            op="-"
-            op1= cal.acc.value;
-            cal.acc.value="0";
+        function sub() {
+            op = "-"
+            op1 = cal.acc.value;
+            cal.acc.value = "0";
         }
-        function mul(){
-            op="*"
-            op1= cal.acc.value;
-            cal.acc.value="0";
+        function mul() {
+            op = "*"
+            op1 = cal.acc.value;
+            cal.acc.value = "0";
         }
-        function mod(){
-            op="%"
-            op1= cal.acc.value;
-            cal.acc.value="0";
+        function mod() {
+            op = "%"
+            op1 = cal.acc.value;
+            cal.acc.value = "0";
         }
-        function clr(){
-            op="c"
-            op1= cal.acc.value;
-            cal.acc.value="0";
+        function clr() {
+            op = "c"
+            op1 = cal.acc.value;
+            cal.acc.value = "0";
         }
 
-        function result(){
-            switch(op)
-            {
+        function result() {
+            switch (op) {
                 case "+":
-                    cal.acc.value= parseFloat(cal.acc.value) + parseFloat(op1);
+                    cal.acc.value = parseFloat(cal.acc.value) + parseFloat(op1);
                     break;
                 case "-":
-                    cal.acc.value= parseFloat(op1) - parseFloat(cal.acc.value);
+                    cal.acc.value = parseFloat(op1) - parseFloat(cal.acc.value);
                     break;
                 case "*":
-                    cal.acc.value= parseFloat(op1) * parseFloat(cal.acc.value);
+                    cal.acc.value = parseFloat(op1) * parseFloat(cal.acc.value);
                     break;
                 case "/":
-                    cal.acc.value= parseFloat(op1) / parseFloat(cal.acc.value);
+                    cal.acc.value = parseFloat(op1) / parseFloat(cal.acc.value);
                     break;
                 case "%":
-                    cal.acc.value= parseFloat(op1) % parseFloat(cal.acc.value);
+                    cal.acc.value = parseFloat(op1) % parseFloat(cal.acc.value);
                     break;
                 case "c":
-                    cal.acc.value= "";
+                    cal.acc.value = "";
                     break;
             }
         }
     </script>
 </head>
-<body>
-    
-        <form name="cal">
 
-            <table border="10">
-                <tr>
-                    <td colspan="4"><input type="text" name="acc" value="0">
-                </tr>
-                <tr>
-                    <td><input type="button" value="1" onclick="cal.acc.value+=1"></td>
-                    <td><input type="button" value="2" onclick="cal.acc.value+=2"></td>
-                    <td><input type="button" value="3" onclick="cal.acc.value+=3"></td>
-                    <td><input type="button" value="+" onclick="add()"></td>
-                </tr>
-                <tr>
-                    <td><input type="button" value="4" onclick="cal.acc.value+=4"></td>
-                    <td><input type="button" value="5" onclick="cal.acc.value+=5"></td>
-                    <td><input type="button" value="6" onclick="cal.acc.value+=6"></td>
-                    <td><input type="button" value="-" onclick="sub()"></td>
-                </tr>
-                <tr>
-                    <td><input type="button" value="7" onclick="cal.acc.value+=7"></td>
-                    <td><input type="button" value="8" onclick="cal.acc.value+=8"></td>
-                    <td><input type="button" value="9" onclick="cal.acc.value+=9"></td>
-                    <td><input type="button" value="*" onclick="mul()"></td>
-                </tr>
-                <tr>
-                    <td><input type="button" value="0" onclick="cal.acc.value+=0"></td>
-                    <td><input type="button" value="/" onclick="div()"></td>
-                    <td><input type="button" value="%" onclick="mod()"></td>
-                    <td><input type="button" value="=" onclick="result()"></td>
-                </tr>
-                <tr>
-                    <td><input type="button" value="c" onclick="clr()"></td>
-                </tr>
-            </table>
-        </form>
-        
-    
+<body>
+    <form name="cal">
+
+        <table border="10">
+            <tr>
+                <td colspan="4"><input type="text" name="acc" value="0">
+            </tr>
+            <tr>
+                <td><input type="button" value="1" onclick="cal.acc.value+=1"></td>
+                <td><input type="button" value="2" onclick="cal.acc.value+=2"></td>
+                <td><input type="button" value="3" onclick="cal.acc.value+=3"></td>
+                <td><input type="button" value="+" onclick="add()"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" onclick="cal.acc.value+=4"></td>
+                <td><input type="button" value="5" onclick="cal.acc.value+=5"></td>
+                <td><input type="button" value="6" onclick="cal.acc.value+=6"></td>
+                <td><input type="button" value="-" onclick="sub()"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="7" onclick="cal.acc.value+=7"></td>
+                <td><input type="button" value="8" onclick="cal.acc.value+=8"></td>
+                <td><input type="button" value="9" onclick="cal.acc.value+=9"></td>
+                <td><input type="button" value="*" onclick="mul()"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="0" onclick="cal.acc.value+=0"></td>
+                <td><input type="button" value="/" onclick="div()"></td>
+                <td><input type="button" value="%" onclick="mod()"></td>
+                <td><input type="button" value="=" onclick="result()"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="c" onclick="clr()"></td>
+            </tr>
+        </table>
+    </form>
+
+
 </body>
+
 </html>

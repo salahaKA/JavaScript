@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Operations</title>
+    <script>
+        function checkPaliNo() {
+            let st = ui.val.value;
+            let num = parseInt(st)
+            var rev = 0
+            var temp = num;
+            while (num > 0) {
+                var digit = num % 10
+                rev = rev * 10 + digit
+                num = parseInt(num / 10);
+            }
+            if (rev == temp) alert("Given number is palindrome");
+            else alert("Given number is not palindrome");
+        }
+
+        function countVowels() {
+            var st = ui.val.value;
+            var pat = /[aeiou]/ig
+            // i- case sensitive and g- global regular exp
+            var vowarray = st.match(pat);
+            alert("vowel count:" + vowarray.length);
+        }
+        function checkPaliString() {
+            var st = ui.val.value;
+            var pat = /[^a-zA-Z]/ig
+            var st = st.replace(pat, "");
+            // input-> #@#$123malayalam o/p=>malayalam
+            var rev = ((st.split("")).reverse()).join("");
+            if (st == rev) alert("Given string is palindrome")
+            else alert("Given string is palindrome")
+        }
+
+        // function checkPaliString() {
+        //     let str = ui.val.value.toLowerCase(); // Convert the string to lowercase for case-insensitive comparison
+        //     let rev = str.split('').reverse().join(''); // Reverse the string
+
+        //     if (st == rev) alert("Given string is palindrome")
+        //     else alert("Given string is palindrome")
+        // }
+
+    </script>
+</head>
+
+<body>
+    <form name="ui">
+        <pre>
+            Enter Value:
+            <input type="text" name="val">
+
+            <input type="button" value="Check palindromeNo" onclick="checkPaliNo()">
+            <input type="button" value="Count Vowels" onclick="countVowels()">
+            <input type="button" value="Check palindromeString" onclick="checkPaliString()">
+        </pre>
+    </form>
+</body>
+
+</html>
