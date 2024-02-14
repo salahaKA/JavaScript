@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIMIT</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var app = angular.module("myapp", []);
+        app.controller("c1", function ($scope, $rootScope) {
+            $scope.name = "Aloysius"
+            $scope.add = "Mangalore Jyothi"
+            $rootScope.phno = '9876543210'
+            $scope.showMsg = function (msg) {
+                alert(msg);
+            }
+        });
+
+        app.controller("c2", function ($scope, $rootScope) {
+            $scope.name = "AIMIT"
+            $scope.add = "Kotekar, Beeri"
+            $rootScope.phno = '1234567890'
+            $scope.showMsg = function (msg) {
+                alert(msg);
+            }
+        });
+    </script>
+</head>
+
+<body ng-app="myapp">
+    <pre>
+    <pre>
+        Name: {{name}}
+        Address: {{add}}
+        Contact: {{phno}}
+    </pre>
+
+    <div ng-controller="c1">
+        Name: {{name}}
+        Address: {{add}}
+        Contact: {{phno}}
+        <button ng-click="showMsg(name)">SHOW ME</button>
+    </div>
+
+    <div ng-controller="c2">
+        Name: {{name}}
+        Address: {{add}}
+        Contact: {{phno}}
+        <button ng-click="showMsg(name)">SHOW ME</button>
+    </div>
+    </pre>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cricket Score Dashboard</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cricket Score Dashboard</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Team</th>
+        <th>Player</th>
+        <th>Score</th>
+        <th>Add Run</th>
+      </tr>
+    </thead>
+    <tbody id="scoreTableBody"></tbody>
+  </table>
+  <div>
+    <p>Overs: <span id="overs"></span></p>
+    <p>Run Rate: <span id="runRate"></span></p>
+  </div>
+  <button onclick="addBall()">Add Ball</button>
+  <button onclick="calculateRunRate()">Run Rate</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.1/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    socket.on('update', (data) => {
+      document.getElementById('overs').innerText = `${data.overs}.${data.balls % 6}`;
+      document.getElementById('runRate').innerText = data.runRate;
+
+      const scoreTableBody = document.getElementById('scoreTableBody');
+      scoreTableBody.innerHTML = '';
+
+      data.players.forEach((player, index) => {
+        const row = scoreTableBody.insertRow();
+        const teamCell = row.insertCell(0);
+        const playerCell = row.insertCell(1);
+        const scoreCell = row.insertCell(2);
+        const addRunCell = row.insertCell(3);
+
+        teamCell.innerText = data.teamName;
+        playerCell.innerText = player.name;
+        scoreCell.innerText = player.score;
+
+        const addButton = document.createElement('button');
+        addButton.innerText = 'Add Run';
+        addButton.onclick = () => addRun(index);
+        addRunCell.appendChild(addButton);
+      });
+    });
+
+    function addRun(playerIndex) {
+      socket.emit('addRun', playerIndex);
+    }
+
+    function addBall() {
+      socket.emit('addBall');
+    }
+
+    function calculateRunRate() {
+      // Run Rate calculation is automatically updated in the server, so no need for a separate function here.
+    }
+  </script>
+</body>
+</html>

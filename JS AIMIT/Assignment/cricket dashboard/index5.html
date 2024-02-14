@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cricket Score Dashboard</title>
+  <style>
+    body {
+      
+      background-image: url('https://th.bing.com/th?id=OIP.jjebQWq63sC8_QpIu9iSxAHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2'); /* Replace 'path/to/your/image.jpg' with the actual path to your image file */
+      background-size: cover; /* Ensure the background image covers the entire viewport */
+      background-position: center; /* Center the background image */
+      background-repeat: no-repeat; /* Do not repeat the background image */
+      margin: 0; /* Remove default margin */
+      padding: 0; /* Remove default padding */
+      /* font-family: Arial, sans-serif; Set a default font-family */
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      font-size: large;
+      font-family: Arial, Helvetica, sans-serif;
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    h1{
+      font-size: large;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    button{
+      background: rgb(8, 8, 89);
+      color: white;
+      font-size: large;
+    }
+  </style>
+</head>
+<body bgcolor="grey">
+  <!-- <h1>Cricket Score Dashboard</h1> -->
+  <table>
+    <thead>
+      <tr>
+        <th colspan="6" style="color: rgb(105, 2, 2);">Cricket Score</th>
+      </tr>
+    </thead>
+    <tbody id="scoreTableBody">
+      <tr>
+        <td colspan="6">Team: India</td>
+      </tr>
+      <tr>
+        <th>Player Name</th>
+        <th>Score</th>
+        <!-- <th>Image</th> -->
+        <th colspan="4">Add Run</th>
+      </tr>
+      <tr>
+        <td>Rohit Sharma (c)</td>
+        <!-- <td><img src="https://th.bing.com/th/id/OIP.-CTrDoNrxZT2ri6_dyzdwQHaEJ?w=286&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt=""></td> -->
+        <td id="player1Score"></td>
+        <td><button onclick="addRun(0, 4)">4</button></td>
+        <td><button onclick="addRun(0, 6)">6</button></td>
+        <td><button onclick="addRun(0, 1)">1</button></td>
+        <td><button onclick="addRun(0, 2)">2</button></td>
+      </tr>
+      <tr>
+        <td>Shubman Gill</td>
+        <td id="player2Score"></td>
+        <td><button onclick="addRun(1, 4)">4</button></td>
+        <td><button onclick="addRun(1, 6)">6</button></td>
+        <td><button onclick="addRun(1, 1)">1</button></td>
+        <td><button onclick="addRun(1, 2)">2</button></td>
+      </tr>
+      <tr>
+        <td>Virat Kohli</td>
+        <td id="player3Score"></td>
+        <td><button onclick="addRun(2, 4)">4</button></td>
+        <td><button onclick="addRun(2, 6)">6</button></td>
+        <td><button onclick="addRun(2, 1)">1</button></td>
+        <td><button onclick="addRun(2, 2)">2</button></td>
+      </tr>
+
+      <tr>
+        <td>Shreyas Iyer</td>
+        <td id="player4Score"></td>
+        <td><button onclick="addRun(3, 4)">4</button></td>
+        <td><button onclick="addRun(3, 6)">6</button></td>
+        <td><button onclick="addRun(3, 1)">1</button></td>
+        <td><button onclick="addRun(3, 2)">2</button></td>
+      </tr>
+
+      <tr>
+        <td>KL Rahul (wk)</td>
+        <td id="player5Score"></td>
+        <td><button onclick="addRun(4, 4)">4</button></td>
+        <td><button onclick="addRun(4, 6)">6</button></td>
+        <td><button onclick="addRun(4, 1)">1</button></td>
+        <td><button onclick="addRun(4, 2)">2</button></td>
+      </tr>
+
+      <tr>
+        <td>Suryakumar Yadav</td>
+        <td id="player6Score"></td>
+        <td><button onclick="addRun(5, 4)">4</button></td>
+        <td><button onclick="addRun(5, 6)">6</button></td>
+        <td><button onclick="addRun(5, 1)">1</button></td>
+        <td><button onclick="addRun(5, 2)">2</button></td>
+      </tr>
+
+      <tr>
+        <td>Ravindra Jadeja</td>
+        <td id="player7Score"></td>
+        <td><button onclick="addRun(6, 4)">4</button></td>
+        <td><button onclick="addRun(6, 6)">6</button></td>
+        <td><button onclick="addRun(6, 1)">1</button></td>
+        <td><button onclick="addRun(6, 2)">2</button></td>
+      </tr>
+
+      <tr>
+        <td>Mohammed Shami</td>
+        <td id="player8Score"></td>
+        <td><button onclick="addRun(7, 4)">4</button></td>
+        <td><button onclick="addRun(7, 6)">6</button></td>
+        <td><button onclick="addRun(7, 1)">1</button></td>
+        <td><button onclick="addRun(7, 2)">2</button></td>
+      </tr>
+
+      <tr>
+        <td>Jasprit Bumrah</td>
+        <td id="player9Score"></td>
+        <td><button onclick="addRun(8, 4)">4</button></td>
+        <td><button onclick="addRun(8, 6)">6</button></td>
+        <td><button onclick="addRun(8, 1)">1</button></td>
+        <td><button onclick="addRun(8, 2)">2</button></td>
+      </tr>
+
+      <tr>
+        <td>Kuldeep Yadav</td>
+        <td id="player10Score"></td>
+        <td><button onclick="addRun(9, 4)">4</button></td>
+        <td><button onclick="addRun(9, 6)">6</button></td>
+        <td><button onclick="addRun(9, 1)">1</button></td>
+        <td><button onclick="addRun(9, 2)">2</button></td>
+      </tr>
+
+      <tr>
+        <td>Mohammed Siraj</td>
+        <td id="player11Score"></td>
+        <td><button onclick="addRun(10, 4)">4</button></td>
+        <td><button onclick="addRun(10, 6)">6</button></td>
+        <td><button onclick="addRun(10, 1)">1</button></td>
+        <td><button onclick="addRun(10, 2)">2</button></td>
+      </tr>
+
+      <tr>
+        <td>Devduth Padikal</td>
+        <td id="player12Score"></td>
+        <td><button onclick="addRun(11, 4)">4</button></td>
+        <td><button onclick="addRun(11, 6)">6</button></td>
+        <td><button onclick="addRun(11, 1)">1</button></td>
+        <td><button onclick="addRun(11, 2)">2</button></td>
+      </tr>
+
+      
+      <!-- Add rows for players 4 to 12 similarly -->
+
+      <tr>
+        <td>Total</td>
+        <td id="totalScore" colspan="5"></td>
+      </tr>
+      <tr>
+        <td>Overs</td>
+        <td id="overs" colspan="5"></td>
+      </tr>
+      <tr>
+        <td>Run Rate</td>
+        <td id="runRate" colspan="5"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button onclick="addBall()">Add Ball</button>
+  <button onclick="calculateRunRate()">Run Rate</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.1/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    socket.on('update', (data) => {
+      document.getElementById('player1Score').innerText = data.players[0].score;
+      document.getElementById('player2Score').innerText = data.players[1].score;
+      document.getElementById('player3Score').innerText = data.players[2].score;
+      document.getElementById('player4Score').innerText = data.players[3].score;
+      document.getElementById('player5Score').innerText = data.players[4].score;
+      document.getElementById('player6Score').innerText = data.players[5].score;
+      document.getElementById('player7Score').innerText = data.players[6].score;
+      document.getElementById('player8Score').innerText = data.players[7].score;
+      document.getElementById('player9Score').innerText = data.players[8].score;
+      document.getElementById('player10Score').innerText = data.players[9].score;
+      document.getElementById('player11Score').innerText = data.players[10].score;
+      document.getElementById('player12Score').innerText = data.players[11].score;
+
+      // Update player scores for players 4 to 12 similarly
+      document.getElementById('totalScore').innerText = data.players.reduce((acc, player) => acc + player.score, 0);
+      // document.getElementById('overs').innerText = `${Math.floor(data.overs)}.${data.balls % 6}`;
+      document.getElementById('overs').innerText = `${Math.floor(data.overs) + Math.floor(data.balls / 6)}.${data.balls % 6}`;
+
+      document.getElementById('runRate').innerText = data.runRate;
+    });
+
+    function addRun(playerIndex, score) {
+      socket.emit('addRun', playerIndex, score);
+    }
+
+    function addBall() {
+      socket.emit('addBall');
+    }
+
+    function calculateRunRate() {
+      // Run Rate calculation is automatically updated in the server, so no need for a separate function here.
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js"></script>
+    <title>Document</title>
+    <script>
+        var ngapp=angular.module('myapp',[]);
+    </script>
+
+</head>
+<body ng-app>
+    <form name="f1">
+    <pre>
+        fname: <input type="text" name="fname" ng-model="firstName" required>
+        <div style="color: brown;" ng-show="f1.fname.$invalid">*This is required field</div>
+
+        lname: <input type="text" name="lname" ng-model="lastName" required>
+        <div style="color: brown;" ng-show="f1.lname.$error.required">*This is required field</div>
+
+        Address: <input type="text" name="add" ng-model="custadd" ng-maxlength="20" ng-minlength="10" required>
+        <div style="color: brown;" ng-show="f1.add.$error.required">*This is required field</div>
+        <div style="color: brown;" ng-show="f1.add.$error.maxlength">length lt 20</div>
+        <div style="color: brown;" ng-show="f1.add.$error.minlength">length gt 10</div>
+
+
+    </pre>
+</form>
+</body>
+</html>

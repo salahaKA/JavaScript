@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample calculator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var app = angular.module("myapp", []);
+        app.service('arithmetic', function () {
+            this.add = function (n1, n2) {
+                return (parseInt(n1) + parseInt(n2));
+            }
+            this.sub = function (n1, n2) {
+                return (parseInt(n1) - parseInt(n2));
+            }
+            this.mul = function (n1, n2) {
+                return (parseInt(n1) * parseInt(n2));
+            }
+            this.div = function (n1, n2) {
+                return (parseInt(n1) / parseInt(n2));
+            }
+        });
+        app.controller("c1", function ($scope, arithmetic) {
+            $scope.result = 0;
+            $scope.addNos = function () {
+                $scope.result = arithmetic.add($scope.n1, $scope.n2);
+            }
+            $scope.subNos = function () {
+                $scope.result = arithmetic.sub($scope.n1, $scope.n2);
+            }
+            $scope.mulNos = function () {
+                $scope.result = arithmetic.mul($scope.n1, $scope.n2);
+            }
+            $scope.divNos = function () {
+                $scope.result = arithmetic.div($scope.n1, $scope.n2);
+            }
+            $scope.clear = function () {
+                // $scope.result = 0;
+                $scope.n1 = "";
+                $scope.n2 = "";
+            };
+        });
+    </script>
+</head>
+
+<body ng-app="myapp" ng-controller="c1">
+    <pre>
+        n1= <input type="text" name="n1" ng-model="n1"/>
+        n2= <input type="text" name="n2" ng-model="n2"/>
+        Result: {{result}}
+        <button ng-click="addNos()">+</button>
+        <button ng-click="subNos()">-</button>
+        <button ng-click="mulNos()">*</button>
+        <button ng-click="divNos()">/</button>
+        <button ng-click="clear()">Clear</button>
+        
+    </pre>
+</body>
+
+</html>

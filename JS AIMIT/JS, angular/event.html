@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var app=angular.module("myapp",[]);
+        app.controller("p1",function($scope){
+            // $scope.curdate=new Date();
+            $scope.count=0;
+            $scope.display= function(){
+                alert("Warning! Copy content is not allowed");
+            }
+        });
+
+    </script>
+    <title>Document</title>
+</head>
+<body ng-app="myapp" ng-controller="p1">
+    <pre>
+        <h1 ng-mouseover="count=count+1">On mouseover</h1>
+        <h1 ng-mousemove="count=count+1">on mousemove</h1>
+        <h1 ng-mouseleave="count=count+1">on mouseleave</h1>
+        <h1>{{count}}</h1>
+        <p ng-copy="display()">safdsdafsdfsdafsdafs sfdfda</p>
+        <p>gfgvvcbcvfggfgfgssfvjfa
+            fdfhdashfdrfasdcfcdfcdds
+            dfgdghghfgjasgjfghjf
+        </p>
+        <input type="text" ng-paste="display()">
+
+        
+    </pre>
+    
+</body>
+</html>
